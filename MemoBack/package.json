@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "echo 'No build step needed'",
-    "start": "nodemon app.js"
+    "start": "npx nodemon app.js"
   },
   "dependencies": {
     "body-parser": "^1.20.3",
