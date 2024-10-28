@@ -28,12 +28,9 @@ Routers.post("/addMyMemo",async(req,res,next)=>{
 Routers.put("/replaceMyMemo/:id",async(req,res,next)=>{
 const Id=req.params.id;
 const body=req.body;
-console.log(body);
 
 try{
     const response = await MemoModel.findByIdAndUpdate({_id:Id},{...body});
-    // const response=await MemoModel.findByIdAndUpdate({_id:Id},{body})
-    console.log(response)
     if(!response) return res.send({ok:false,message:"sorry ! Edit faild"});
     res.send({ok:false,message:"Edit successfully",data:response})
 }catch(e){
@@ -42,14 +39,13 @@ try{
 });
 Routers.delete("/deleteMyMemo/:ids",async(req,res,next)=>{
     const Ids=req.params.ids;
-    console.log(Ids)
     try{
         const response=await MemoModel.findByIdAndDelete({_id:Ids})
         if(!response) return res.send({ok:false,message:"sorry ! Delete faild"});
         res.send({ok:false,message:"Delete successfully"})
     
     }catch(e){
-    
+    res.send({message:e.message})
     }
 })
 
