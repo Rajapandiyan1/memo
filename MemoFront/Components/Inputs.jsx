@@ -97,7 +97,6 @@ function Inputs() {
   setdeleteload(false)
 })
   }
-    // 5. Form submission (or other usage of state)
     const handleSubmit = (e) => {
       e.preventDefault();
       console.log(state)
