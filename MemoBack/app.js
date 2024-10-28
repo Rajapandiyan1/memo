@@ -4,7 +4,7 @@ const bodyparser=require("body-parser");
 const Router=require("./Router/handlers");
 const cors=require("cors");
 
-app.use(cors({credentials:true,origin:"https://memo-r4oiimlts-rajapandiyan1s-projects.vercel.app"}))
+app.use(cors({credentials:true,origin:"https://memo-git-master-rajapandiyan1s-projects.vercel.app"}))
 app.use(bodyparser({extended:false}));
 app.use(bodyparser.json());
 (async()=>{
