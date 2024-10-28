@@ -30,6 +30,7 @@ function Inputs() {
     const [submitload,setsubmitload]=useState(false);
     const [deleteload,setdeleteload]=useState(false);
     const [loading,setloading]=useState(true);
+    const baseUrl="https://memo-11u8.onrender.com/";
 
     const [editIndex,seteditIndex]=useState('');
 
@@ -42,7 +43,7 @@ function Inputs() {
 
   setsubmitload(true)
       e.preventDefault();
-     await fetch("http://localhost:3001/api/replaceMyMemo/"+editId,{
+     await fetch(baseUrl+"api/replaceMyMemo/"+editId,{
         method:"PUT",
         headers:{
           "Content-Type":"application/json"
@@ -80,7 +81,7 @@ function Inputs() {
     };
  async function deletes(index,id) {
   setdeleteload(true)
-  fetch("http://localhost:3001/api/deleteMyMemo/"+id,{
+  fetch(baseUrl+"api/deleteMyMemo/"+id,{
     method:"DELETE",
     headers:{
       
@@ -104,7 +105,7 @@ function Inputs() {
       if(state.title=="" && state.description=="") return
       console.log(state)
       setsubmitload(true)
-      fetch("http://localhost:3001/api/addMyMemo",{
+      fetch(baseUrl+"api/addMyMemo",{
         method:"POST",
         headers:{
           "Content-Type":"application/json"
@@ -122,7 +123,7 @@ return data;
     };
     useEffect(()=>{
       setloading(true);
-      fetch("http://localhost:3001/api/getMymemo").then((data)=>{
+      fetch(baseUrl+"api/getMymemo").then((data)=>{
           return data.json();
       }).then((data)=>{
           setdata(data.data);
