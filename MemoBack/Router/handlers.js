@@ -17,7 +17,6 @@ Routers.get("/getMymemo",async(req,res,next)=>{
 })
 Routers.post("/addMyMemo",async(req,res,next)=>{
     try{
-        console.log(req.body)
         let data=await new MemoModel(req.body).save();
         if(!data) return res.send({ok:false,message:"add memo faild !"})
          res.send({ok:false,message:"add memo successfully",data:data})
